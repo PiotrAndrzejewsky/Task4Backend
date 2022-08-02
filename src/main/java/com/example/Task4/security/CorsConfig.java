@@ -15,7 +15,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("https://task4-frontend-itransition.herokuapp.com")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
                         .allowedHeaders("Content-Type", "Date", "Total-Count", "loginInfo", "Authorization")
                         .exposedHeaders("Content-Type", "Date", "Total-Count", "loginInfo", "Authorization")
