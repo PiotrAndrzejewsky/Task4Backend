@@ -13,6 +13,8 @@ public class UserPrincipal implements UserDetails {
         this.mUserEntity = userEntity;
     }
 
+    public UserPrincipal() {
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

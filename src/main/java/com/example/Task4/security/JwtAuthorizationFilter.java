@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
@@ -54,8 +55,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
 
             if (userName != null) {
-                UserEntity userEntity = mUserRepository.findByUsername(userName);
-                UserPrincipal principal = new UserPrincipal(userEntity);
+                Optional<UserEntity> userEntity = mUserRepository.findByUsername(userName);
+                UserPrincipal principal = new UserPrincipal(userEntity.get());
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userName, null, principal.getAuthorities());
                 return auth;
             }
