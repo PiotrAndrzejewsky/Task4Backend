@@ -25,10 +25,10 @@ public class UserEntity {
     private LocalDateTime mLastLoginTime;
 
     @Column(name = "registration_time")
-    private LocalDateTime mRegistrationTime;
+    private LocalDateTime mRegistrationTime = LocalDateTime.now();
 
     @Column(name = "active")
-    private boolean mActive;
+    private boolean mActive = true;
 
     public UserEntity() {
     }
